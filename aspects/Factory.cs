@@ -18,6 +18,12 @@ namespace aop.aspects
         static readonly ProxyGenerator _proxy;
         static IKernel _kernel;
 
+        public static IKernel Kernel
+        {
+            get { return Factory._kernel; }
+            set { Factory._kernel = value; }
+        }
+
         static Factory()
         {
             _proxy = new ProxyGenerator();
@@ -27,7 +33,8 @@ namespace aop.aspects
         }
 
         private static void BootstrapDependencies(IKernel kernel)
-        {            
+        {
+            kernel.Bind<IEventService>().ToConstant(new EventService());
             kernel.Bind<ILogger>().To<ConsoleLogger>();
             kernel.Bind<ISaleRepository>().To<SaleRepository>();
             kernel.Bind<ISaleFeature>().To<SaleFeature>();

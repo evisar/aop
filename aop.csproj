@@ -56,12 +56,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aspects\AspectAttribute.cs" />
+    <Compile Include="aspects\EventAspect.cs" />
     <Compile Include="aspects\Factory.cs" />
     <Compile Include="aspects\IAspect.cs" />
     <Compile Include="aspects\castle\MethodInterceptor.cs" />
+    <Compile Include="Common\ExecuteEvent.cs" />
+    <Compile Include="Services\IEventService.cs" />
     <Compile Include="aspects\LoggingAspect.cs" />
     <Compile Include="aspects\NullGuardAspect.cs" />
-    <Compile Include="aspects\StatesAttribute.cs" />
+    <Compile Include="Common\Event.cs" />
+    <Compile Include="Common\IEvent.cs" />
+    <Compile Include="Common\StatesAttribute.cs" />
     <Compile Include="aspects\TransactionAspect.cs" />
     <Compile Include="aspects\WorkflowAspect.cs" />
     <Compile Include="Common\Workflow.cs" />
@@ -75,6 +80,7 @@
     <Compile Include="domain\Sale.cs" />
     <Compile Include="domain\SaleFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\IRepository.cs" />
     <Compile Include="Services\ISaleRepository.cs" />
     <Compile Include="Services\SaleRepository.cs" />

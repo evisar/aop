@@ -7,6 +7,7 @@ namespace aop.domain
     [Aspect(typeof(LoggingAspect))]
     [Aspect(typeof(TransactionAspect))]
     [Aspect(typeof(WorkflowAspect))]
+    [Aspect(typeof(EventAspect))]
     public interface ISaleFeature: IFeature<Sale>
     {
         [States(Sale.SaleState.New)]

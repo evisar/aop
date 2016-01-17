@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Ninject.Extensions.Conventions;
 using Castle.Core.Logging;
 using aop.domain;
+using aop.Services;
+using aop.Common;
 
 namespace aop
 {
@@ -19,6 +21,12 @@ namespace aop
         {
             var sale = new Sale();
             var feature = Factory.Create<ISaleFeature>();
+
+            var bus = Factory.Kernel.Get<IEventService>();
+            bus.Subscribe<ExecuteEvent<Sale>>(x =>
+                {
+                    Console.WriteLine("Event {0} on {1}", x.Action, x.Entity);
+                });
 
             feature.Create(sale);
             feature.Save(sale);

@@ -16,6 +16,7 @@ namespace aop.aspects.castle
         {
             _service = service;
             _aspect = aspect;
+            Console.WriteLine("Wiring {0} on {1}", aspect.GetType(), service.GetType());
         }
 
         public void Intercept(IInvocation invocation)

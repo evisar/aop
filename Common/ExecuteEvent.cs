@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace aop.Common
 {
-    public interface IEntity
+    public class ExecuteEvent<T>: Event<T>
+        where T: IEntity
     {
-        Guid Id { get; }
     }
 }

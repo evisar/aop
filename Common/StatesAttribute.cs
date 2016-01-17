@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace aop.aspects
+namespace aop.Common
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple=true)]
     public class StatesAttribute: Attribute
