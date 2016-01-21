@@ -174,3 +174,20 @@ But in this article we are going to concentrate on policy injection of aspects u
 Let’s implement the above scenario by using Dynamic Proxy.
 
 ![alt tag](aop.png)
+
+The Aspects folder has all the different aspect implementations:
+ 
+	Logging
+	NullGuard
+	Transaction
+	Workflow
+	Events
+	There is a Factory class, which creates AOP wrapped instances based on their interface
+	There is also a Castle.Core based interceptor for wiring aspects called MethodInterceptor
+	There is an AspectAttribute which determines which aspects should be wired to a feature
+ 
+The Common folder has contracts for defining entities, workflows, features, events, etc.
+
+The Domain folder has a sample Sale entity and SaleFeature operation implementation.
+
+The Services folder has small implementation of standard external services like data and event/message hub.
