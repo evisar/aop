@@ -135,6 +135,25 @@ o	It’s slower but the code doesn’t change and much more flexible in runtime
 
 So if we extract these aspects, we are able to apply these aspects to each called method in runtime in a pipeline form for all or some of the chosen methods. 
 
+
+Thus, the contract of the given feature with applied aspects now looks like:
+    
+	[Aspect(typeof(NullGuardAspect))]
+    [Aspect(typeof(LoggingAspect))]
+    [Aspect(typeof(TransactionAspect))]
+    [Aspect(typeof(WorkflowAspect))]
+    [Aspect(typeof(EventAspect))]
+    public interface ISaleFeature: IFeature<Sale>
+    {
+        [States(Sale.SaleState.New)]
+        void Create(aop.domain.Sale sale);
+
+        [States(Sale.SaleState.Normal)]
+        [States(Sale.SaleState.Reserved)]
+        void Save(aop.domain.Sale sale);
+    }
+
+
 Applying aspects through policy injection can be done in 2 methods:
 -	By using the Decorator pattern or
 -	By method interception with dynamic proxies
