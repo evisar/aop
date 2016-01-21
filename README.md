@@ -145,9 +145,11 @@ Thus, the contract of the given feature with applied aspects now looks like:
     [Aspect(typeof(EventAspect))]
     public interface ISaleFeature: IFeature<Sale>
     {
+		//this method can only be executed in New state
         [States(Sale.SaleState.New)]
         void Create(aop.domain.Sale sale);
 
+		//this method can be executed olny in Normal or Reserved state
         [States(Sale.SaleState.Normal)]
         [States(Sale.SaleState.Reserved)]
         void Save(aop.domain.Sale sale);
