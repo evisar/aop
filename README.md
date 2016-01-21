@@ -12,7 +12,8 @@ Mixing functional and non-functional code has 2 very big drawbacks:
 1.	On the long run, it creates hardly maintainable code and
 2.	It makes it very hard to differentiate between functional and non-functional code
 Let’s see a simple example which saves a Sale or queues it for later, depending if it’s a planned future order.
-        /// <summary>
+        
+		/// <summary>
         /// Saves the sale or queues it for later
         /// </summary>
         /// <param name="sale"></param>
@@ -32,8 +33,10 @@ Let’s see a simple example which saves a Sale or queues it for later, dependin
                 }
             }
         }
+		
 But this almost domain logic code lacks all the required non-functional aspects, starting with logging, validation, etc. So applying couple of these aspects, immediately this simple piece of code becomes much more complex and much harder to identify, read and maintain domain logic.
-/// <summary>
+
+		/// <summary>
         /// Saves the sale or queues it for later
         /// </summary>
         /// <param name="sale"></param>
