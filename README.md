@@ -94,7 +94,7 @@ But this almost domain logic code lacks all the required non-functional aspects,
             catch(Exception ex)
             {
                 _logger.Exception(ex);
-                throw ex; //usually we shouldn't catch all
+                throw; //usually we shouldn't catch all
             }
 
             //method finish aspect
@@ -139,3 +139,4 @@ But in this article we are going to concentrate on policy injection of aspects u
 
 Let’s implement the above scenario by using Dynamic Proxy.
 
+![alt tag](aop.png)

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace aop.Services
+namespace aop.domain
 {
     public class SaleRepository: ISaleRepository
     {

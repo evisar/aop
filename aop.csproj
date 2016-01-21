@@ -82,8 +82,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\IRepository.cs" />
-    <Compile Include="Services\ISaleRepository.cs" />
-    <Compile Include="Services\SaleRepository.cs" />
+    <Compile Include="domain\ISaleRepository.cs" />
+    <Compile Include="domain\SaleRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
