@@ -62,6 +62,12 @@ But this almost domain logic code lacks all the required non-functional aspects,
             {
                 throw new SecurityException("Not Authorized", typeof(AuthorizationPermission));
             }
+			
+			//check if method can be executed based on workflow/state machine rules
+            if(!_workflow.CanExecute<SaleFeature, Sale.SaleState>("Save"))
+            {
+                throw new InvalidOperationException();
+            }
 
             //method logging aspect
             _logger.Log("Entering Save method");
@@ -88,6 +94,10 @@ But this almost domain logic code lacks all the required non-functional aspects,
                         }
 
                         scope.Complete();
+						
+						//send save completed event
+                        _eventService.Publish(
+							new MethodComplete<SaleFeature>("Save", sale));
                     }
                 }
             }
